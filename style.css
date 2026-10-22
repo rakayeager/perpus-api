@@ -1,0 +1,820 @@
+/* ===================================================
+ * APLIKASI PERPUSTAKAAN - THEME EDITORIAL PAPER & 3D
+ * =================================================== */
+
+:root {
+    --bg-main: #F8F6F0;           /* Warna Krem Hangat Majalah */
+    --bg-white: #FFFFFF;
+    --text-black: #161618;
+    --text-body: #494C52;
+    --text-muted: #8E929A;
+    --accent-red: #E0533C;        /* Aksen tombol aktif */
+    --accent-dark: #1F2024;
+    --border-paper: #ECE8DE;
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --shadow-book-3d: 0 25px 35px -10px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body.editorial-body {
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ---------------------------------------------------
+ * Sidebar Ramping Minimalis (Pill Style)
+ * --------------------------------------------------- */
+.sidebar-pill {
+    width: 80px;
+    background-color: var(--bg-main);
+    border-right: 1.5px solid var(--border-paper);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.brand-icon {
+    font-size: 1.8rem;
+    color: var(--text-black);
+    margin-bottom: 2.5rem;
+}
+
+.nav-icons {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-icons li a {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.nav-icons li.active a,
+.nav-icons li a:hover {
+    background-color: var(--accent-red);
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(224, 83, 60, 0.35);
+}
+
+.nav-icons .nav-bottom {
+    margin-top: auto;
+}
+
+/* ---------------------------------------------------
+ * Area Konten Viewport & Header
+ * --------------------------------------------------- */
+.main-viewport {
+    margin-left: 80px;
+    flex-grow: 1;
+    padding: 1.5rem 3rem 3rem 3rem;
+    min-width: 0;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.search-input-wrap {
+    position: relative;
+    width: 440px;
+}
+
+.search-input-wrap i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-input-wrap input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--border-paper);
+    padding: 0.75rem 1rem 0.75rem 2.6rem;
+    font-size: 0.95rem;
+    color: var(--text-black);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input-wrap input:focus {
+    border-color: var(--text-black);
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.btn-toggle-view {
+    background-color: transparent;
+    border: 1.5px solid var(--border-paper);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-black);
+    transition: all 0.2s;
+}
+
+.btn-toggle-view:hover {
+    background-color: var(--bg-white);
+}
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.avatar-sm {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-text {
+    font-weight: 600;
+    color: var(--text-black);
+}
+
+/* ---------------------------------------------------
+ * Grid Editorial (Dua Kolom)
+ * --------------------------------------------------- */
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+}
+
+.greeting-box {
+    margin-bottom: 3rem;
+}
+
+.headline-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--text-black);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.highlight-name {
+    color: var(--text-black);
+}
+
+.headline-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.btn-pill-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--accent-dark);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+
+.btn-pill-dark:hover {
+    transform: translateY(-2px);
+}
+
+/* Baris Buku Populer */
+.popular-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.popular-header h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-black);
+}
+
+.filter-dropdown select {
+    background-color: var(--bg-white);
+    border: 1.5px solid var(--border-paper);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.book-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem;
+}
+
+.book-card-item {
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.book-card-item:hover {
+    transform: translateY(-8px);
+}
+
+.book-cover-3d-wrap {
+    perspective: 600px;
+    margin-bottom: 0.85rem;
+}
+
+.book-cover-surface {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 4px 8px 8px 4px;
+    background-color: #2D3748;
+    background-size: cover;
+    background-position: center;
+    box-shadow: -8px 12px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transform: rotateY(-10deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card-item:hover .book-cover-surface {
+    transform: rotateY(0deg) scale(1.02);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.22);
+}
+
+.cover-text-fallback {
+    padding: 1rem;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.book-info-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-black);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-info-author {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* ---------------------------------------------------
+ * Model 3D Buku Terbuka (Open-Book 3D Canvas)
+ * --------------------------------------------------- */
+.spotlight-card {
+    background-color: var(--bg-white);
+    border-radius: 28px;
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-paper);
+}
+
+.book-3d-stage {
+    perspective: 1200px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    cursor: grab;
+}
+
+.open-book-3d {
+    width: 320px;
+    height: 200px;
+    display: flex;
+    transform-style: preserve-3d;
+    transform: rotateX(12deg) rotateY(-4deg);
+    transition: transform 0.15s ease-out;
+    box-shadow: var(--shadow-book-3d);
+}
+
+.page {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    background-color: #FAF8F2;
+    box-sizing: border-box;
+}
+
+.page-left {
+    border-radius: 6px 0 0 6px;
+    border-right: 1px solid #D5CEBD;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-content h5 {
+    font-size: 0.7rem;
+    color: var(--accent-red);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+}
+
+.page-content h3 {
+    font-size: 1.1rem;
+    color: var(--text-black);
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+}
+
+.page-content p {
+    font-size: 0.72rem;
+    color: #6C707A;
+    line-height: 1.4;
+}
+
+.spine-fold-left {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    background: linear-gradient(to left, rgba(0,0,0,0.18), transparent);
+}
+
+.page-right {
+    border-radius: 0 6px 6px 0;
+    overflow: hidden;
+}
+
+.spine-fold-right {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15px;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(0,0,0,0.18), transparent);
+}
+
+.page-cover-art {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #2D3748;
+}
+
+.fallback-open-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #FFFFFF;
+    padding: 1rem;
+    text-align: center;
+}
+
+.spotlight-meta {
+    padding: 0 0.5rem;
+}
+
+.book-spot-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-black);
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.book-spot-author {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.book-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge-chip {
+    background-color: var(--bg-main);
+    color: var(--text-black);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.book-spot-publisher {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-body);
+}
+
+.spot-action-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-spot-edit {
+    flex: 1;
+    background-color: var(--accent-dark);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 0.65rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.btn-spot-edit:hover {
+    transform: translateY(-2px);
+}
+
+.btn-spot-delete {
+    flex: 1;
+    background-color: transparent;
+    border: 1.5px solid var(--border-paper);
+    color: var(--accent-red);
+    padding: 0.65rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-spot-delete:hover {
+    background-color: #FEE2E2;
+    border-color: #FCA5A5;
+}
+
+/* ---------------------------------------------------
+ * Tabel Mode Ujian & Styling Global
+ * --------------------------------------------------- */
+.table-modal-section {
+    margin-top: 3.5rem;
+}
+
+.table-container-card {
+    background-color: var(--bg-white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-paper);
+}
+
+.table-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.table-actions-group {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.btn-export-excel {
+    background-color: #10B981;
+    color: #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.btn-export-pdf {
+    background-color: #EF4444;
+    color: #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.classic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.classic-table th {
+    background-color: var(--bg-main);
+    color: var(--text-black);
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    text-align: left;
+    border-bottom: 1.5px solid var(--border-paper);
+}
+
+.classic-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-paper);
+    vertical-align: middle;
+}
+
+.table-thumb {
+    width: 40px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.badge-sub {
+    background-color: var(--bg-main);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+}
+
+.row-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.action-edit { background: #FEF3C7; color: #B45309; }
+.action-delete { background: #FEE2E2; color: #DC2626; }
+
+.flash-alert {
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.flash-success { background-color: #DEF7EC; color: #03543F; }
+.flash-danger { background-color: #FEE2E2; color: #991B1B; }
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 2rem 0;
+    color: var(--text-muted);
+}
+
+/* Responsif Layar Kecil */
+@media (max-width: 1024px) {
+    .editorial-grid {
+        grid-template-columns: 1fr;
+    }
+    .main-viewport {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-pill {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        padding: 1rem;
+    }
+    .brand-icon {
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+    }
+    .nav-icons {
+        flex-direction: row;
+    }
+    .main-viewport {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    .app-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .search-input-wrap {
+        width: 100%;
+    }
+    .headline-title {
+        font-size: 2.3rem;
+    }
+}
+
+/* ===================================================
+ * Styling Halaman Login: Warm Paper & Minimalist Pill
+ * =================================================== */
+
+:root {
+    --bg-main: #F8F6F0;
+    --bg-white: #FFFFFF;
+    --text-black: #161618;
+    --text-body: #494C52;
+    --text-muted: #8E929A;
+    --accent-red: #E0533C;
+    --accent-dark: #1F2024;
+    --border-paper: #ECE8DE;
+    --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Background Layar Penuh Bernuansa Krem Hangat */
+body.login-body {
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* Pembungkus Kartu */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Kartu Form */
+.login-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-paper);
+    border-radius: 28px;
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-card);
+}
+
+/* Header Form */
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-black);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+}
+
+.login-header p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.35rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-black);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+    background-color: var(--bg-main);
+    border: 1.5px solid var(--border-paper);
+    border-radius: 14px;
+    font-size: 0.95rem;
+    color: var(--text-black);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+    background-color: var(--bg-white);
+    border-color: var(--accent-dark);
+    box-shadow: 0 0 0 4px rgba(31, 32, 36, 0.08);
+}
+
+/* Tombol Masuk / Login */
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+.btn-primary {
+    background-color: var(--accent-dark);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Notifikasi Pesan Kesalahan */
+.alert-danger {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FCA5A5;
+    padding: 0.85rem 1.2rem;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Footer Login */
+.login-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
